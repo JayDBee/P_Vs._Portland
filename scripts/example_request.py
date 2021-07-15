@@ -5,7 +5,6 @@ from pyppeteer import launch
 #import os
 
 URL = "https://www.portlandmercury.com/blogtown/2021/07/13/35028680/most-heatwave-victims-died-alone-with-no-air-conditioning-county-report-finds"
-#page = requests.get(URL)
 
 async def main():
     browser = await launch()
@@ -16,9 +15,8 @@ async def main():
 
     #soup
     soup = BeautifulSoup(page_content, "html.parser")
-    print(soup.prettify())
-
-    #close browser
+    results = soup.find(class_="article-text category-blogtown")
+    print(results.prettify())
     await browser.close()
 
 asyncio.get_event_loop().run_until_complete(main())
@@ -26,7 +24,6 @@ asyncio.get_event_loop().run_until_complete(main())
 #should only print pg. txt for confirmation
 #print(page.text)
 #print(page.content
-print("\nshould be empty above^^")
 
 
 
