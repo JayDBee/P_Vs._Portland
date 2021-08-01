@@ -20,7 +20,9 @@ class EveroutSpider(scrapy.Spider):
             "heading image": response.css('img ::attr(src)')[1].get(),
         }
 
-        
+       
+
+
 
 
 #this code should be implemented next for dynamic intigration with django

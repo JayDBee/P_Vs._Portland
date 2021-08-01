@@ -5,5 +5,8 @@
 //The Portland Press Herald
 //Portland Mercury
 
-Everout is PM's TODO site
-    @Text is usually insid the webpage's <div class="description">
+
+new:
+    >Everout.com/Portland/
+    >travelportland/attractions
+    >travel.usnews.com/Portland_OR
