@@ -28,7 +28,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
   {% load static %}
-    <img src="{% static '/static/kraken.jpg' %}" alt="Kraken" style="width:100%">
+    <img src="/static/kraken.jpg" alt="Kraken" style="width:100%">
     <div class="w3-container">
       <h3><b>EVENTS</b></h3>
       <h5>Latest fun in the universe (Hood River), <span class="w3-opacity">April 7, 2014</span></h5>
@@ -55,19 +55,18 @@ and is wrapped around the whole page content, except for the footer in this exam
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
   {% load static %}
-  <img src="{% static '/static/templates/kraken.jpg' %}" alt="Another" style="width:100%">
+  <img src="/static/kraken.jpg" alt="Another" style="width:100%">
     <div class="w3-container">
       <h3><b>E-NEWS</b></h3>
       <h5>KUWTK Cancelled?<span class="w3-opacity">April 2, 2014</span></h5>
     </div>
-
     <div class="w3-container">
       <p>On this episode of KUWTK, we find out somethings are better left unsaid. Or are they? Find out more!</p>
       <div class="w3-row">
         <div class="w3-col m8 s12">
           <p>
-            <button class="w3-button w3-padding-large w3-white w3-border" onclick="window.location.href='{% url "comingSoon" %}';"><b>READ MORE »</b>
-            </button>
+            <a href ="{% url 'comingSoon' %}" class = "w3-button w3-padding-large w3-white w3-border"> <b>READ MORE »</b>
+            </a>
           </p>
         </div>
         <div class="w3-col m4 w3-hide-small">
