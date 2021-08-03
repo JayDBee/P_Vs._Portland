@@ -5,3 +5,6 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request, 'home.html')
+
+def comingSoon(request):
+    return render(request, 'comingSoon.html')

@@ -1,69 +1,3 @@
-<!--
-<html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-  <title>JDeeB Project Homepage</title>
-  <style type="text/css"> 
-   /* MCECS stylesheet... sections from www.pdx.edu/lib/cecs/css/cecs.css */
-   body {
-	background-color:#FFFFFF; 
-	background-image:url(gridback.gif); 
-	background-repeat:repeat;
-   }
-   p {
-	font-family:arial,verdana,sans-serif;
-	font-size:12px;
-	text-align:left;
-   }
-   h1 {
-	font-family:arial, verdana,sans-serif;
-	color:#104059;
-	font-size:18px;
-	font-weight:bold;
-   }
-   h2 {
-	font-family:arial,verdana,sans-serif;
-	color:#336699;
-	font-size:18px;
-	font-weight:bold;
-   }
-   h3 {
-	font-family:arial,verdana,sans-serif;
-	font-size:14px;
-	color:#003959;
-	text-transform:uppercase;
-	font-weight:bold;
-   }
-   h4 {
-	font-family:arial,verdana,sans-serif;
-	font-size:13px;
-	color:#000000;
-	font-weight:bold;
-   }
-   a {color:#000099;}
-   a:visited {color:#666699;}
-   a:hover {color:#CC0000;}
-   ol {line-height:15px;}
-   li {
-	font-family:arial,verdana,sans-serif;
-	font-size:12px;
-   }
-</style>
- </head>
- <body bgcolor="#FFFFFF" text="#000000">
-  <br/>
-  <h1>ACTIVITIES IN PORTLND
-  </h1> 
-  <br/>
-  <p>For information about hosting visit
-   <a href="http://www.cecs.pdx.edu" alt="MCECS homepage" title="MCECS homepage">The
-   Maseeh College of Engineering and Computer Science</a>.
-  </p>
- </body>
-</html>
-
--->
-
 <!DOCTYPE html>
 <html>
 <title>PDX_PSU</title>
@@ -93,7 +27,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 <div class="w3-col l8 s12">
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-    <img src="kraken.jpg" alt="Kraken" style="width:100%">
+  {% load static %}
+    <img src="{% static '/static/kraken.jpg' %}" alt="Kraken" style="width:100%">
     <div class="w3-container">
       <h3><b>EVENTS</b></h3>
       <h5>Latest fun in the universe (Hood River), <span class="w3-opacity">April 7, 2014</span></h5>
@@ -119,7 +54,8 @@ and is wrapped around the whole page content, except for the footer in this exam
 
   <!-- Blog entry -->
   <div class="w3-card-4 w3-margin w3-white">
-  <img src="kraken.jpg" alt="Another" style="width:100%">
+  {% load static %}
+  <img src="{% static '/static/templates/kraken.jpg' %}" alt="Another" style="width:100%">
     <div class="w3-container">
       <h3><b>E-NEWS</b></h3>
       <h5>KUWTK Cancelled?<span class="w3-opacity">April 2, 2014</span></h5>
@@ -130,7 +66,7 @@ and is wrapped around the whole page content, except for the footer in this exam
       <div class="w3-row">
         <div class="w3-col m8 s12">
           <p>
-            <button class="w3-button w3-padding-large w3-white w3-border" onclick="window.location.href='first.html';"><b>READ MORE »</b>
+            <button class="w3-button w3-padding-large w3-white w3-border" onclick="window.location.href='{% url "comingSoon" %}';"><b>READ MORE »</b>
             </button>
           </p>
         </div>
