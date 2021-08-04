@@ -3,6 +3,11 @@
 import scrapy
 
 
+#define function for spider use
+#define path to function path
+#use path in script to populate webpage
+
+
 #everout
 class EveroutSpider(scrapy.Spider):
     #HenryEvery Aka
@@ -19,9 +24,6 @@ class EveroutSpider(scrapy.Spider):
             "title": response.css('h1::text').get(),
             "heading image": response.css('img ::attr(src)')[1].get(),
         }
-
-       
-
 
 
 

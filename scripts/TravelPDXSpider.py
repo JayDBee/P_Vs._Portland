@@ -10,7 +10,7 @@ class TravelPortlandSpider(scrapy.Spider):
     allowed_domains = ["travelportland.com/attractions/"]
     start_urls = (
 
-        #uncommented don't work, try parsing by if there is an article heading/ xpath for main content
+        #commented don't work, try parsing by if there is an article heading/ xpath for main content
         
 
         #'https://www.travelportland.com/attractions/portland-saturday-market/',
