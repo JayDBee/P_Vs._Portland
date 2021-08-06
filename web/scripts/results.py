@@ -7,9 +7,11 @@ from scrapy.utils.project import get_project_settings
 #connects receivers to signals
 from scrapy.signalmanager import dispatcher
 
+
 from EveroutSpider import EveroutSpider
 #special thanks to this solution from:
 #https://stackoverflow.com/questions/40237952/get-scrapy-crawler-output-results-in-script-file-function
+
 
 def spider_results():
     results = []
@@ -27,4 +29,4 @@ def spider_results():
 
 #prints lists which contain dictionaries with scrapy results
 if __name__ == '__main__':
-    print(spider_results())
+    print("\n\n" + spider_results()[0]['title'])

@@ -24,13 +24,3 @@ class EveroutSpider(scrapy.Spider):
             "title": response.css('h1::text').get(),
             "heading image": response.css('img ::attr(src)')[1].get(),
         }
-
-
-
-#this code should be implemented next for dynamic intigration with django
-#def __init__(self, *args, **kwargs):
-        #self.url = kwargs.get('url')
-        #self.domain = kwargs.get('domain')
-        #self.start_urls = [self.url]
-        #self.allowed_domains = [self.domain]
-
