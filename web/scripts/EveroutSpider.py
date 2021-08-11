@@ -2,10 +2,17 @@
 #these will be the spiders used to collect information for the PVP application
 import scrapy
 
+from scrapy import signals
+from scrapy.signalmanager import dispatcher
+from twisted.internet import reactor
+from scrapy.crawler import CrawlerRunner
+from multiprocessing import Process, Queue
 
-#define function for spider use
-#define path to function path
-#use path in script to populate webpage
+
+#from EveroutSpider import EveroutSpider
+#special thanks to this solution from:
+#https://stackoverflow.com/questions/40237952/get-scrapy-crawler-output-results-in-script-file-function
+#https://stackoverflow.com/questions/41495052/scrapy-reactor-not-restartable
 
 
 #everout
@@ -24,3 +31,49 @@ class EveroutSpider(scrapy.Spider):
             "title": response.css('h1::text').get(),
             "heading image": response.css('img ::attr(src)')[1].get(),
         }
+
+def spider_runner_results():
+    results = []
+
+    def crawler_results(signal, sender, item, response, spider):
+        results.append(item)
+    dispatcher.connect(crawler_results, signal=signals.item_scraped)
+
+    runner = CrawlerRunner()
+    d = runner.crawl(EveroutSpider)
+    d.addBoth(lambda _: reactor.stop())
+    reactor.run() # the script will block here until the crawling is finished
+    
+    return results
+
+
+# the wrapper to make it run more times
+def run_spider():
+
+    results = []
+
+    def f(q):
+
+        try:
+            def crawler_results(signal, sender, item, response, spider):
+                results.append(item)
+
+            dispatcher.connect(crawler_results, signal=signals.item_scraped)
+            runner = CrawlerRunner()
+            deferred = runner.crawl(EveroutSpider)
+            deferred.addBoth(lambda _: reactor.stop())
+            reactor.run()
+            q.put(None)
+        except Exception as e:
+            q.put(e)
+
+    q = Queue()
+    p = Process(target=f, args=(q,))
+    p.start()
+    result = q.get()
+    p.join()
+
+    if result is not None:
+        raise result
+
+    return results
