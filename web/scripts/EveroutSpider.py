@@ -29,7 +29,7 @@ class EveroutSpider(scrapy.Spider):
         yield {
             "url": response.url,
             "title": response.css('h1::text').get(),
-            "heading image": response.css('img ::attr(src)')[1].get(),
+            "image": response.css('img ::attr(src)')[1].get(),
         }
 
 def spider_runner_results():
@@ -77,3 +77,7 @@ def run_spider():
         raise result
 
     return results
+
+if __name__ == '__main__':
+    #print(spider_runner_results())
+    print(run_spider())
