@@ -9,14 +9,11 @@ class TravelPortlandSpider(scrapy.Spider):
     name = "Kidd"
     allowed_domains = ["travelportland.com/attractions/"]
     start_urls = (
-
         #commented don't work, try parsing by if there is an article heading/ xpath for main content
-        
-
         #'https://www.travelportland.com/attractions/portland-saturday-market/',
-        'https://www.travelportland.com/attractions/forest-park/',
         #'https://www.travelportland.com/attractions/powells/',
         'https://www.travelportland.com/attractions/portland-rose-garden/',
+        'https://www.travelportland.com/attractions/forest-park/',
     )
 
     def parse(self, response):
@@ -27,5 +24,6 @@ class TravelPortlandSpider(scrapy.Spider):
         yield {
             "url": response.url,
             "title": response.css('h1::text').get(),
-            "heading image": firstjpg[0],
+            "image": firstjpg[0],
+            "about": response.xpath("//h2[@class='tp-hero__sub-title']/text()").get().strip(),
         }

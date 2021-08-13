@@ -1,7 +1,6 @@
 #July 31. 21
 #these will be the spiders used to collect information for the PVP application
 import scrapy
-
 from scrapy import signals
 from scrapy.signalmanager import dispatcher
 from twisted.internet import reactor
@@ -30,6 +29,7 @@ class EveroutSpider(scrapy.Spider):
             "url": response.url,
             "title": response.css('h1::text').get(),
             "image": response.css('img ::attr(src)')[1].get(),
+            "about": response.xpath("//div[@class='description']/text()").get().strip()
         }
 
 def spider_runner_results():
@@ -47,37 +47,5 @@ def spider_runner_results():
     return results
 
 
-# the wrapper to make it run more times
-def run_spider():
-
-    results = []
-
-    def f(q):
-
-        try:
-            def crawler_results(signal, sender, item, response, spider):
-                results.append(item)
-
-            dispatcher.connect(crawler_results, signal=signals.item_scraped)
-            runner = CrawlerRunner()
-            deferred = runner.crawl(EveroutSpider)
-            deferred.addBoth(lambda _: reactor.stop())
-            reactor.run()
-            q.put(None)
-        except Exception as e:
-            q.put(e)
-
-    q = Queue()
-    p = Process(target=f, args=(q,))
-    p.start()
-    result = q.get()
-    p.join()
-
-    if result is not None:
-        raise result
-
-    return results
-
 if __name__ == '__main__':
-    #print(spider_runner_results())
-    print(run_spider())
+    print(spider_runner_results())

@@ -6,7 +6,13 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import random
 
-from scripts.EveroutSpider import spider_runner_results, run_spider
+from scripts.EveroutSpider import spider_runner_results
+
+#below is not working 
+#from scripts.results import spider_runner_results
+
+#from EveroutSpider import EveroutSpider
+#from TravelPDXSpider import TravelPortlandSpider
 
 
 def home(request):
@@ -17,8 +23,6 @@ def home(request):
 def Events(request):
     context = random.choice(spider_runner_results())
     return render(request, 'EventPage.html', context)
-
-
 
 def comingSoon(request):
     return render(request, 'comingSoon.html')
