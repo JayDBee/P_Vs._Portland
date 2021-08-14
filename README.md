@@ -9,3 +9,16 @@ Navigational and search software will be used to help list and give additional i
 
 ## Special Thanks
 This application is created from the help of organizations such as EverOut, TravelPortland, and others. The hopes for this project is for the people of portland to enjoy the city as best they can. Any information collected is appreciated.
+
+
+## Acknowledgements
+Algthough the project does not display sources the data has been taken from, below is a list of all the sources for plan of use.
+
+ 'https://everout.com/portland/events/the-big-one-pnw-rock-festival/e102790/',
+ 'https://everout.com/portland/events/feast-portland-presents-summer-of-feast/e101475/',
+ 'https://www.travelportland.com/attractions/portland-saturday-market/',
+ 'https://www.travelportland.com/attractions/powells/',
+ 'https://www.travelportland.com/attractions/portland-rose-garden/',
+ 'https://www.travelportland.com/attractions/forest-park/',
+ 'https://travel.usnews.com/Portland_OR/Things_To_Do/Washington_Park_21334/'
+  
