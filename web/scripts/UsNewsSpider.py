@@ -5,7 +5,6 @@ import scrapy
 
 #usnews
 class UsNewsSpider(scrapy.Spider):
-    #Sir Henry
     name = "Morgan"
     allowed_domains = ['travel.usnews.com/Portland_OR/Things_To_Do/']
     start_urls = (

@@ -5,6 +5,8 @@ from scrapy import signals
 from scrapy.signalmanager import dispatcher
 from twisted.internet import reactor
 from scrapy.crawler import CrawlerRunner
+
+
 from multiprocessing import Process, Queue
 
 
@@ -16,7 +18,6 @@ from multiprocessing import Process, Queue
 
 #everout
 class EveroutSpider(scrapy.Spider):
-    #HenryEvery Aka
     name = "LongBen"
     allowed_domains = ["everout.com/portland/"]
     start_urls = (

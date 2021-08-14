@@ -5,7 +5,6 @@ import scrapy
 
 #travelportland
 class TravelPortlandSpider(scrapy.Spider):
-    #William
     name = "Kidd"
     allowed_domains = ["travelportland.com/attractions/"]
     start_urls = (
