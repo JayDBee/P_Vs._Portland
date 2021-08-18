@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-mru*mp%9ep0$_6!zr5*%qejgg7@ded6*0ef&lu#d)jv2yuyt99
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','pvspdx.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1','pvspdx.herokuapp.com']
 
 
 # Application definition
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'web.urls'
+ROOT_URLCONF = 'app.urls'
 
 TEMPLATES = [
     {
@@ -80,7 +80,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'web.wsgi.application'
+WSGI_APPLICATION = 'app.wsgi.application'
 
 
 # Database
